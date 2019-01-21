@@ -18,6 +18,7 @@ namespace CodeFirst.API.Controllers
 
         // GET: api/Employee
         [HttpGet]
+        [ApiExplorerSettings(IgnoreApi = true)]
         public IActionResult Get()
         {
             IEnumerable<Employee> employees = _dataRepository.GetAll();
@@ -26,6 +27,7 @@ namespace CodeFirst.API.Controllers
 
         // GET: api/Employee/5
         [HttpGet("{id}", Name = "Get")]
+        [ApiExplorerSettings(IgnoreApi = true)]
         public IActionResult Get(long id)
         {
             Employee employee = _dataRepository.Get(id);
@@ -40,6 +42,7 @@ namespace CodeFirst.API.Controllers
 
         // POST: api/Employee
         [HttpPost]
+        [ApiExplorerSettings(IgnoreApi = true)]
         public IActionResult Post([FromBody] Employee employee)
         {
             if (employee == null)
@@ -56,6 +59,7 @@ namespace CodeFirst.API.Controllers
 
         // PUT: api/Employee/5
         [HttpPut("{id}")]
+        [ApiExplorerSettings(IgnoreApi = true)]
         public IActionResult Put(long id, [FromBody] Employee employee)
         {
             if (employee == null)
@@ -75,6 +79,7 @@ namespace CodeFirst.API.Controllers
 
         // DELETE: api/Employee/5
         [HttpDelete("{id}")]
+        [ApiExplorerSettings(IgnoreApi = true)]
         public IActionResult Delete(long id)
         {
             Employee employee = _dataRepository.Get(id);
