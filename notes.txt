@@ -1,0 +1,20 @@
+1.) change trarget framework / dll
+2.) setup assemlby 
+
+// migration script ran from the PackageManagerConsole
+Add-Migration EFCoreCodeFirstSample.CodeFirst.Models.EmployeeContext
+
+// update data in the database 
+Add-Migration EFCoreCodeFirstSample.CodeFirst.Models.EmployeeContextSeed
+
+// add new column into migration table
+Add-Migration EFCoreCodeFirstSample.CodeFirst.Models.AddEmployeeGender
+
+
+update-database -> to apply migration
+Remove-Migration -> self-explainatory
+
+
+Add-Migration EFCoreCodeFirstSample.AssemlbyName.Models.EmployeeContextSeed
+
+https://code-maze.com/net-core-web-api-ef-core-code-first/
