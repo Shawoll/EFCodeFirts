@@ -1,12 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
 using CodeFirst.Models;
 using CodeFirst.Models.Repository;
 using Microsoft.AspNetCore.Mvc;
 
-namespace CodeFirst.Controllers
+namespace CodeFirst.API.Controllers
 {
     [Route("api/employee")]
     [ApiController]

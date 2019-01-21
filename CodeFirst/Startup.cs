@@ -7,8 +7,9 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using Swashbuckle.AspNetCore.Swagger;
 
-namespace CodeFirst
+namespace CodeFirst.API
 {
     public class Startup
     {
@@ -22,11 +23,34 @@ namespace CodeFirst
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddDbContext<EmployeeContext>(
-                opts => opts.UseSqlServer(Configuration["ConnectionString:CodeFirstDb"],
-                optsAssemlby => optsAssemlby.MigrationsAssembly("CodeFirst")));
+            services.AddDbContext<EmployeeContext>(opts =>
+                opts.UseSqlServer(Configuration["ConnectionString:CodeFirstDb"],
+                optsAssemlby => optsAssemlby.MigrationsAssembly("CodeFirst.API")));
             services.AddScoped<IDataRepository<Employee>, EmployeeManager>();
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
+            services.AddMvcCore().AddApiExplorer();
+            services.AddSwaggerGen(c =>
+            {
+                c.SwaggerDoc("v1", new Info
+                {
+                    Version = "v1",
+                    Title = "ToDo API",
+                    Description = "A simple example ASP.NET Core Web API",
+                    TermsOfService = "None",
+                    Contact = new Contact
+                    {
+                        Name = "Shayne Boyer",
+                        Email = string.Empty,
+                        Url = "https://twitter.com/spboyer"
+                    },
+                    License = new License
+                    {
+                        Name = "Use under LICX",
+                        Url = "https://example.com/license"
+                    }
+                });
+            });
+
 
         }
 
@@ -45,6 +69,19 @@ namespace CodeFirst
 
             app.UseHttpsRedirection();
             app.UseMvc();
+
+            app.UseSwagger();
+
+            // Enable middleware to serve swagger-ui (HTML, JS, CSS, etc.), 
+            // specifying the Swagger JSON endpoint.
+            app.UseSwaggerUI(c =>
+            {
+                c.SwaggerEndpoint("/swagger", "My API V1");
+                c.RoutePrefix = string.Empty;
+            });
+
+            app.UseMvc();
+
         }
 
 

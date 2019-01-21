@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using Microsoft.AspNetCore.Mvc;
 
-namespace CodeFirs.Controllers
+namespace CodeFirs.API.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
