@@ -4,20 +4,20 @@
 FROM microsoft/dotnet:2.2-aspnetcore-runtime-nanoserver-1803 AS base
 WORKDIR /app
 EXPOSE 80
-EXPOSE 443
 
 FROM microsoft/dotnet:2.2-sdk-nanoserver-1803 AS build
 WORKDIR /src
-COPY ["CodeFirs/CodeFirs.csproj", "CodeFirs/"]
-RUN dotnet restore "CodeFirs/CodeFirs.csproj"
+COPY ["CodeFirst.API/CodeFirst.API.csproj", "CodeFirst.API/"]
+COPY ["CodeFirst.Models/CodeFirst.Models.csproj", "CodeFirst.Models/"]
+RUN dotnet restore "CodeFirst.API/CodeFirst.API.csproj"
 COPY . .
-WORKDIR "/src/CodeFirs"
-RUN dotnet build "CodeFirs.csproj" -c Release -o /app
+WORKDIR "/src/CodeFirst.API"
+RUN dotnet build "CodeFirst.API.csproj" -c Release -o /app
 
 FROM build AS publish
-RUN dotnet publish "CodeFirs.csproj" -c Release -o /app
+RUN dotnet publish "CodeFirst.API.csproj" -c Release -o /app
 
 FROM base AS final
 WORKDIR /app
 COPY --from=publish /app .
-ENTRYPOINT ["dotnet", "CodeFirs.dll"]
+ENTRYPOINT ["dotnet", "CodeFirst.API.dll"]
