@@ -24,9 +24,20 @@ namespace CodeFirst.API
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddDbContext<EmployeeContext>(opts =>
-                opts.UseSqlServer(Configuration["ConnectionString:CodeFirstDb"],
+                opts.UseSqlServer(Configuration["ConnectionString:DefaultConnection"],
                 optsAssemlby => optsAssemlby.MigrationsAssembly("CodeFirst.API")));
             services.AddScoped<IDataRepository<Employee>, EmployeeManager>();
+
+            services.AddDbContext<CartContext>(opts =>
+                opts.UseSqlServer(Configuration["ConnectionString:DefaultConnection"],
+                optsAssemlby => optsAssemlby.MigrationsAssembly("CodeFirst.API")));
+            services.AddScoped<ICartDataRepository<Cart>, CartManager>();
+
+            services.AddDbContext<CartItemContext>(opts =>
+                opts.UseSqlServer(Configuration["ConnectionString:DefaultConnection"],
+                optsAssemlby => optsAssemlby.MigrationsAssembly("CodeFirst.API")));
+            services.AddScoped<ICartItemDataRepository<CartItem>, CartItemManager>();
+
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
             services.AddMvcCore().AddApiExplorer();
             services.AddSwaggerGen(c =>

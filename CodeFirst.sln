@@ -12,6 +12,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "solution_items", "solution_
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CodeFirst.API", "CodeFirst.API\CodeFirst.API.csproj", "{E73825B9-C32A-45FD-80C8-526A1EEDD91A}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CodeFirst.WEB", "CodeFirst.WEB\CodeFirst.WEB.csproj", "{E81B66DE-B334-4496-A272-AA919BEB3A42}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -26,6 +28,10 @@ Global
 		{E73825B9-C32A-45FD-80C8-526A1EEDD91A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E73825B9-C32A-45FD-80C8-526A1EEDD91A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{E73825B9-C32A-45FD-80C8-526A1EEDD91A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E81B66DE-B334-4496-A272-AA919BEB3A42}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E81B66DE-B334-4496-A272-AA919BEB3A42}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E81B66DE-B334-4496-A272-AA919BEB3A42}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E81B66DE-B334-4496-A272-AA919BEB3A42}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

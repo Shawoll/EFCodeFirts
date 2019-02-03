@@ -5,7 +5,7 @@ namespace CodeFirst.Models
 {
     public class EmployeeContext : DbContext
     {
-        public EmployeeContext(DbContextOptions options)
+        public EmployeeContext(DbContextOptions<EmployeeContext> options)
             : base(options)
         {
         }

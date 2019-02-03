@@ -29,6 +29,8 @@ namespace CodeFirst.Migrations
 
                     b.Property<string>("Email");
 
+                    b.Property<Guid>("EmployeeGuid");
+
                     b.Property<string>("FirstName");
 
                     b.Property<string>("LastName");
@@ -45,6 +47,7 @@ namespace CodeFirst.Migrations
                             EmployeeId = 1L,
                             DateOfBirth = new DateTime(1979, 4, 25, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Email = "uncle.bob@gmail.com",
+                            EmployeeGuid = new Guid("00000000-0000-0000-0000-000000000000"),
                             FirstName = "Uncle",
                             LastName = "Bob",
                             PhoneNumber = "999-888-7777"
@@ -54,6 +57,7 @@ namespace CodeFirst.Migrations
                             EmployeeId = 2L,
                             DateOfBirth = new DateTime(1981, 7, 13, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Email = "jan.kirsten@gmail.com",
+                            EmployeeGuid = new Guid("00000000-0000-0000-0000-000000000000"),
                             FirstName = "Jan",
                             LastName = "Kirsten",
                             PhoneNumber = "111-222-3333"
