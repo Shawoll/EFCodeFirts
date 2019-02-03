@@ -18,3 +18,10 @@ Remove-Migration -> self-explainatory
 Add-Migration EFCoreCodeFirstSample.AssemlbyName.Models.EmployeeContextSeed
 
 https://code-maze.com/net-core-web-api-ef-core-code-first/
+
+
+// to run application locally
+ng serve --host=0.0.0.0
+https://lifehacker.com/how-to-find-your-local-and-external-ip-address-5833108
+
+cmd->ipconfig->ipv4
